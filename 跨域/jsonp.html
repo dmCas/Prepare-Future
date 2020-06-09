@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <script>
+    // let script = document.createElement('script');
+
+    // script.src = 'http://localhost:3000';
+
+    // document.body.appendChild(script);
+
+    function jsonp(url, jsonpCallback, success) {
+      let script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.type = 'text/javascript'
+      window[jsonpCallback] = function (data) {
+        success && success(data)
+      }
+
+      document.body.appendChild(script)
+    }
+
+    jsonp('http://localhost:3000', 'callback', function(value){
+      console.log(value)
+    })
+
+  </script> -->
+
+  <!-- 利用Ajax -->
+  <script>
+    $.ajax({
+      url:'http://localhost:3000',
+      type:'GET',
+      dataType:'jsonp',//请求方式为jsonp
+      success:function(data){
+        console.log(res)
+      }
+    })
+  </script>
+</body>
+
+</html>

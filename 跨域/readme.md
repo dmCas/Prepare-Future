@@ -7,6 +7,7 @@ __主要用来预防CSRF攻击（跨站攻击）-> 不能完全阻止__
 
 ## 有几种解决跨域的方式？
 1. 通过表单发起的请求是可以跨域的
-2. JSONP， 利用<script></script>标签没有跨域限制的漏洞
+2. JSONP， 利用<script></script>标签没有跨域限制的漏洞 只适用与GET请求
+3. CORS---后端允许跨域 服务端设置 Access-Control-Allow-Origin
 
 ## 了解预检策略
