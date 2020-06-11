@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn1">防抖</button>
+  <button id="btn2">节流</button>
+  <script>
+    var ele = document.getElementById('btn1')
+    var ele2 = document.getElementById('btn2')
+    var a = throttle(sayThrottle, 2000)
+    ele.addEventListener('click', debounce(sayDebounce,2000))
+    ele2.addEventListener('click', () => {
+      a(18)
+    })
+    
+
+    function debounce(fn, delay) {
+      var timer;
+      return function(...args) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          fn(args)
+        }, delay)
+      }
+    }
+
+    function throttle(fn, delay) {
+      var flag = true;
+      return function(...args) {
+        if(!flag) {
+          return 
+        }
+        flag = false
+        setTimeout(() =>  {
+          fn(args)
+          flag=true
+  
+        }, delay)
+      }
+    }
+
+    function sayDebounce() {
+      console.log('你好，我是防抖函数！')
+    }
+    function sayThrottle(age) {
+      console.log('你好，我是节流函数！',age)
+    }
+  </script>
+</body>
+</html>
