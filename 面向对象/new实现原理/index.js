@@ -3,7 +3,6 @@ function Person(name, age) {
   this.age = age
 }
 
-
 function NewPerson() {
   // 1.创建一个新对象
   var obj = {}
@@ -11,9 +10,23 @@ function NewPerson() {
   var constrouctor = [].shift.call(arguments)
   obj.__proto__ = constrouctor.prototype
   // 3.构造函数的作用域赋给新对象
-  constrouctor.apply(obj, arguments)
+  let result = constrouctor.apply(obj, arguments)
   // 4. 返回该对象
-  return obj
+  return result instanceof Object ? result : obj
 }
 var yunqi = NewPerson(Person, 'yunqi', 'age')
 console.log(yunqi)
+
+
+
+// function newFunction() {
+//   let obj = {}
+//   let constrouctor = [].shift.call(arguments)
+//   obj.__proto__ = constrouctor.prototype
+//   constrouctor.apply(obj, arguments)
+
+//   return obj 
+// }
+// var person2 = newFunction(Person, 'yunqi', 20)
+// var person1 = new Person('yunqi', 20)
+// console.log(person1,person2 instanceof Person)
