@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    $.ajax({
+      url:'http://localhost:3000',
+      type:'GET',
+      // dataType:'jsonp',//请求方式为jsonp
+      success:function(data){
+        console.log(data)
+      }
+    })
+  </script>
+</body>
+</html>

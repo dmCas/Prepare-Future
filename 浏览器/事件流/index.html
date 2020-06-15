@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="parent" style="width:80px; height:80px; background:yellow">
+    <div id="child" style="width:40px; height:40px; background:red"></div>
+  </div>
+
+  <script>
+    var parent = document.getElementById('parent')
+    var child = document.getElementById('child')
+    parent.addEventListener('click', function(event){
+      console.log('父盒子')
+    }, false)
+    child.addEventListener('click', function(event) {
+      event.stopImmediatePropagation()
+      // event.stopPropagation()
+      console.log('子盒子')
+    }, false)
+    
+  </script>
+</body>
+</html>
