@@ -1,1 +1,1 @@
-## 手写Promise 01:26
+## 手写Promise
