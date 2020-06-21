@@ -40,7 +40,8 @@ function Mypromise(fn) {
         that.state = RESOLVED
         that.value = value
         that.resolvedCallbacks.map((cb => cb(that.value)))
-      }}, 0)
+      }
+    }, 0)
   }
 
   function reject(value) {
@@ -70,16 +71,61 @@ Mypromise.prototype.then = function (onFulfilled, onRejected) {
   // 当参数不是函数类型的时候，我们手动创建一个箭头函数赋值给对应的参数
   onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : (v) => v
   onRejected = typeof onRejected === 'function' ? onRejected : r => { throw r }
+
   if (that.state === PENDING) {
-    that.resolvedCallbacks.push(onFulfilled)
-    that.rejectedCallbacks.push(onRejected)
+
+    return (promise2 = new Mypromise((resolve, reject) => {
+      that.resolvedCallbacks.push(() => {
+        try {
+          const x = onFulfilled(that.value)
+          // 帮助我们将then函数的返回结果做一个修改
+          resolutionProcedure(promise2, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      })
+
+      that.rejectedCallbacks.push(() => {
+        try {
+          const x = onRejected(that.value)
+          // 帮助我们将then函数的返回结果做一个修改
+          resolutionProcedure(promise2, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      })
+    }))
   }
 
   if (that.state === RESOLVED) {
-    onFulfilled(that.value)
+    // onFulfilled(that.value)
+    return (promise2 = new Mypromise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          const x = onFulfilled(that.value)
+          // 帮助我们将then函数的返回结果做一个修改
+          resolutionProcedure(promise2, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      })
+    }))
   }
 
   if (that.state === REJECTED) {
     onRejected(that.value)
+  }
+
+
+  function resolutionProcedure(promise2, x, resolve, reject) {
+    if (promise2 === x) {
+      return reject(new TypeError('Error'))
+    }
+    // x 是 new的一个新的实例
+    if (x instanceof Mypromise) {
+      x.then(function(value) { // promise 链的出处
+        resolutionProcedure(promise2, x, resolve, reject)
+      }, reject)
+    }
   }
 }
