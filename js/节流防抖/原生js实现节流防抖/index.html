@@ -18,30 +18,30 @@
     })
     
 
-    function debounce(fn, delay) {
-      var timer;
-      return function(...args) {
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-          fn(args)
-        }, delay)
-      }
-    }
+    // function debounce(fn, delay) {
+    //   var timer;
+    //   return function(...args) {
+    //     clearTimeout(timer)
+    //     timer = setTimeout(() => {
+    //       fn(args)
+    //     }, delay)
+    //   }
+    // }
 
-    function throttle(fn, delay) {
-      var flag = true;
-      return function(...args) {
-        if(!flag) {
-          return 
-        }
-        flag = false
-        setTimeout(() =>  {
-          fn(args)
-          flag=true
+    // function throttle(fn, delay) {
+    //   var flag = true;
+    //   return function(...args) {
+    //     if(!flag) {
+    //       return 
+    //     }
+    //     flag = false
+    //     setTimeout(() =>  {
+    //       fn(args)
+    //       flag=true
   
-        }, delay)
-      }
-    }
+    //     }, delay)
+    //   }
+    // }
 
     function sayDebounce() {
       console.log('你好，我是防抖函数！')
