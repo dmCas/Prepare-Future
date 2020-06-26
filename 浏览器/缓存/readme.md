@@ -70,7 +70,7 @@ Push Cache是HTTP/2中的内容，当以前三种缓存都没有命中的时候�
    ETag类似于文件指纹， If-None-Match会将ETag的值发送给服务器，询问服务器该资源是否有更新，有更新的话将新的资源返回，否则返回304
 
 
-  Last-Modified 和 ETag 是弥补Last-Modified的两大缺点
+  ETag 是弥补Last-Modified的两大缺点
 
 - 如果在项目中什么缓存策略都没用，那么浏览器会怎样
 对于这种情况，浏览器会采用一个启发式算法，通常会取响应头中的Date减去Last-Modified值的10%作为缓存时间
