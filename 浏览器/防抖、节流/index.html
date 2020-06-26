@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button id="btn1">防抖</button>
+    <button id="btn2">节流</button>
+  </div>
+  <script>
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+    var myDebounce = debounce(sayDebounce, 2000)
+    btn1.addEventListener('click', () => {
+      myDebounce('我是传进来的参数！！')
+    })
+    btn2.addEventListener('click', throttle(sayThrottle,2000))
+
+    
+
+    function debounce(fn, delay) {
+      var timer
+      return function(...args) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          fn(args)
+        }, delay)
+      }
+    }
+
+    function throttle(fn, delay) {
+      var flag = false
+      return function(...args) {
+        if(flag) {
+          return
+        }
+        flag = true
+        setTimeout(() => {
+          fn(args)
+          flag = false
+        },delay)
+      }
+    }
+    function sayDebounce(val) {
+      console.log('我是防抖函数！'+val)
+    }
+
+    function sayThrottle() {
+      console.log('我是节流函数')
+    }
+  </script>
+</body>
+</html>

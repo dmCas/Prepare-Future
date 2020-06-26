@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .test{
+      position: absolute;
+      top: 10px;
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="test">
+
+  </div>
+
+  <script>
+    setTimeout(() => {
+      // 引起回流的操作
+      document.querySelector('.test').style.visibility = 'hidden'
+      document.querySelector('.test').style.top = '100px'
+      document.querySelector('.test').style.visibility = 'visible'
+    }, 1000)
+  </script>
+</body>
+</html>
