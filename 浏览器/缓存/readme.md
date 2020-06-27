@@ -78,4 +78,4 @@ Push Cache是HTTP/2中的内容，当以前三种缓存都没有命中的时候�
 ## 实际场景应用缓存策略
 
 1. 频繁变动的资源： Cache-Control：no-cache(不使用强缓存 进入协商缓存)
-2. 代码文件：一般文件名都做了hash处理，只有修改代码才会有新的文件产生，Cache-Control：max-age=31536000
+2. 代码文件：一般文件名都做了hash处理，只有修改代码才会有新的文件产生，Cache-Control：max-age=31536000 

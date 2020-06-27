@@ -1,7 +1,7 @@
 ## Object.definedProperty
 * `[[Configurable]]`：能否修改属性的特性（delete等操作）默认值为true
 * `[[Enumerable]]`: 能否通过for in 循环key值 默认为true
-* `[[Writable]]`: 能否被修改， 默认为true
+* `[[Writable]]`: 能否被修改，默认为true
 * `[[Value]]`: 属性的值，默认为undefined
 
 ## for in 
