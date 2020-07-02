@@ -5,7 +5,6 @@ import thunk from 'redux-thunk'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import axios from 'axios'
 
 // redux: action reducer state
 
@@ -14,38 +13,6 @@ import axios from 'axios'
 //---> action需要两个参数
 // type: 通过type区分state做什么
 // payload 传递数据
-
-const counterReducer = function (state = { count: 1 }, action) {
-  switch (action.type) {
-    case 'COUNT_ADD':
-      return {
-        ...state,
-        count: state.count + 1
-      }
-    default:
-      return state
-  }
-
-}
-
-const postReducer = function(state = {list: [{title: '你好！'}]} , action){
-  switch (action.type) {
-    case 'LOAD_POSTS':
-      return {
-        ...state,
-        list: action.payload
-      }
-    default: 
-      return state
-  }
-
-}
-
-// combineReducers 把多个reducer进行合并
-const rootReducers = combineReducers({
-  counter: counterReducer,
-  post: postReducer
-})
 
 // 让store数据源被管理起来 
 const store = createStore(
@@ -56,21 +23,10 @@ const store = createStore(
   )
 )
 
-store.dispatch(async function(dispatch) {
-  const res = await getPostsRequest()
-  console.log(res.data)
-  dispatch({
-    type: 'LOAD_POSTS',
-    payload: res.data
-  })
-})
 
-
-console.log(store, store.getState())
-
-function getPostsRequest() {
-  return axios.get('https://jsonplaceholder.typicode.com/posts')
-}
+// function getPostsRequest() {
+//   return axios.get('https://jsonplaceholder.typicode.com/posts')
+// }
 
 ReactDOM.render(
   <React.StrictMode>
