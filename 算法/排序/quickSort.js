@@ -63,7 +63,6 @@ var sortColors = function(nums) {
   if(nums.length < 1) return nums
   let pivotIndex = Math.floor(nums.length / 2)
   let pivot = nums.splice(pivotIndex, 1)[0]
-  console.log( pivotIndex, pivot)
   let left = []
   let right = []
   for(var i = 0; i<nums.length; i++) {

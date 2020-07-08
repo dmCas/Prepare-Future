@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ajax 是一个底层的 api
+    // ajax 是一个底层的 api === XMLHttpRequest
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
+    xhr.send()
+
+    // // readyState
+    // // 0: 请求未初始化
+    // // 1: 服务器连接已建立
+    // // 2: 请求已接收 接收到了响应头
+    // // 3: 请求处理中 正在下载响应体
+    // // 4: 请求已完成，且响应已就绪
+    // readyState变化时执行该回调函数
+    xhr.onreadystatechange = () => {
+      console.log(xhr.readyState) // 2 3 4
+      if(xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText)
+        var data = JSON.parse(xhr.responseText) // JSON.parse() 方法用于将一个 JSON 字符串转换为对象。
+        console.log(data)
+      }
+    }
+
+  function axios ({method, url}) {
+    return new Promise((resolve, reject) => {
+      let xhr = new XMLHttpRequest();
+      xhr.open(method, url, true) // true 代表异步
+      xhr.onload = () => {
+        resolve(JSON.parse(xhr.responseText));
+      }
+      xhr.onerror = () => {
+        reject();
+      }
+      xhr.send();
+    })
+  }
+  // axios是对ajax的封装 把 XMLHttpRequest 封装成 promise
+  axios({
+    method: 'GET',
+    url: 'https://jsonplaceholder.typicode.com/posts'
+  })
+  .then((res) => {
+    console.log(res, '手写axios')
+  })
+  </script>
+</body>
+
+</html>

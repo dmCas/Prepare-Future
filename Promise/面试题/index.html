@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="" id="search">
+
+  <script>
+    const search = document.getElementById('search');
+    let xhr, pending
+    function req() {
+      xhr = new XMLHttpRequest();
+      pending = true
+      xhr.onload = () => {
+        pending = false
+      }
+    }
+    search.addEventListener('keyup', () => {
+      if(xhr) {
+        xhr.abort()
+        req()
+      }
+    })
+  </script>
+</body>
+</html>

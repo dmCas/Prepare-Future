@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="wrap">
+
+  </ul>
+  <script>
+    const lists = new Array(100000).fill(null)
+      .map((_, i) => i)
+    console.log(lists)
+    const wrap = document.getElementById('wrap')
+    // lists.forEach(item => {
+    //   const li = document.createElement('li');
+    //   li.textContent = item;
+    //   wrap.appendChild(li)
+    // })
+
+    const batch = 1000;
+    let size = lists.length / batch; // 100
+    let i = 0;
+    function render(size, i) {
+      if(i >= lists.length) return
+      for (let start = i; start < size; start++) {
+        const li = document.createElement('li');
+        li.textContent = lists[start];
+        wrap.appendChild(li)
+      }
+      debugger; 
+      setTimeout(() => {
+        i++
+        render(size, i * size)
+      }, 200);
+    }
+    render(size, i)
+  </script>
+</body>
+
+</html>
