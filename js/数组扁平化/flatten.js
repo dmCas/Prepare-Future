@@ -13,5 +13,4 @@ function flatten(arr) {
   }
   return path.sort((a,b) => a - b)
 }
-
-console.log(flatten(arr))
+flatten(arr)
