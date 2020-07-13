@@ -14,5 +14,5 @@ var b2 = new B()
 b1.name = 'bbb'
 b1.color.push('black')
 
-console.log(b1.name, b1.color, b2.name, b2.color) // bbb 3 a 3
+console.log(b1.name, b1.color, b2.name, b2.color) // bbb 3 a 2
 

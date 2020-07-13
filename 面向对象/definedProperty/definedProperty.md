@@ -6,6 +6,7 @@
 
 ## for in 
 > 遍历数组或对象中的每一个key值
+**和Object.kes的区别：for in 会查找其原型链上的属性**
 * 数组中：arr [1, 2, 3, 4, 5] -> // 0 1 2 3 4
 * 对象中：obj {name: 'yunqi', age:'18'} -> name, age
 
