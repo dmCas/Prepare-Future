@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 400px;
+      /* height: 400px; */
+      border: 1px solid #000;
+      background-color: grey;
+      /* overflow: hidden; */
+      /* float: left; */
+      /* overflow: auto; */
+    }
+    .child1{
+      float: left;
+      background: red;
+      /* padding-bottom: 999px;
+      margin-bottom: -999px; */
+      width: 200px;
+      height: 500px;
+    }
+    .child2{
+      float: left;
+      /* height: 40px;
+            width: 200px;
+      height: 300px; */
+      width: 200px;
+      height: 500px;
+      background:black;
+    }
+    .clearfix::after{
+      content: '';
+      clear: left;
+      display: table;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="parent clearfix">
+    <div class="child1">1</div>
+    <div class="child2">2</div>
+    
+  </div>
+  <!-- <div style="clear:both"></div> -->
+  123
+</body>
+</html>

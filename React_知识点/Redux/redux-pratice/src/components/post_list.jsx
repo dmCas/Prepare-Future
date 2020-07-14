@@ -8,23 +8,27 @@ class PostList extends Component {
   }
 
   componentWillMount () {
-    this.props.dispatch1(loadPostsAction)
+    // this.props.dispatch1(loadPostsAction)
   }
 
   render() {
     const { list } = this.props.post;
-    const posts = list.map(post => {
-      return (<li key={post.id}>
-        {post.title}
-      </li>)
-    })
+    // const posts = list.map(post => {
+    //   return (<li key={post.id}>
+    //     {post.title}
+    //   </li>)
+    // })
     return (
       <div>
+        <p onClick={() => this.props.dispatch1(loadPostsAction)}>123</p>
         <ul>
-          {
+          {/* {
             posts
-          }
+          } */}
         </ul>
+        {
+          console.log(this.props.post.name)
+        }
       </div>
     )
   }

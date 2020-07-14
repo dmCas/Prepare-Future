@@ -1,10 +1,10 @@
 
-const postReducer = (state = {list: [{title: '你好！'}]} , action) => {
+const postReducer = (state = {name:'jj'} , action) => {
   switch (action.type) {
     case 'LOAD_POSTS':
       return {
         ...state,
-        list: action.payload
+        name: action.payload
       }
     default: 
       return state

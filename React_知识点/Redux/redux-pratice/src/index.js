@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import Post from './components/post_list'
 import store from './store'
 import { Provider } from 'react-redux'
 // import { countAddAction } from './actions/counter'
@@ -25,7 +25,7 @@ import { Provider } from 'react-redux'
 // 通过Provider把redux和react连接，store传递到react项目中
 ReactDOM.render(
   <Provider store = {store}>
-    <App />
+    <Post />
   </Provider>,
   document.getElementById('root')
 );
