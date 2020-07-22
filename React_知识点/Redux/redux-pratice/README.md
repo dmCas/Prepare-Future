@@ -6,3 +6,4 @@
 ## redux-thunk
 是redux支持异步操作 
 01:19
+    

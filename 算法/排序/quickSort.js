@@ -67,7 +67,7 @@ var sortColors = function(nums) {
   let right = []
   for(var i = 0; i<nums.length; i++) {
       if(nums[i] <= pivot) {
-          left.push(nums[i])
+          left.push(nums[i]) 
       }else{
           right.push(nums[i])
       }
