@@ -1,6 +1,6 @@
-/**
+/** 最长公共子前缀
  * @param {string[]} strs
- * @return {string}  最长公共子前缀
+ * @return {string}  
  */
 var longestCommonPrefix = function(strs) {
     if(strs.length == 0) return ''
