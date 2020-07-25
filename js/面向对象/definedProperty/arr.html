@@ -1,0 +1,53 @@
+<script>
+    function Parent() {
+        this.a = 1
+    }
+
+    function Child() {
+        Parent.call(this); // 继承属性
+        this.b = 2
+    }
+
+
+    const arr = [0, 1, 2]
+
+
+    // 备份下来的 push，就是浏览器默认给我们实现的 push，才有 往数组最后一项追加 元素的行为
+    // originalPush 默认的 push 的行为就存在它里面
+    const originalPush = Array.prototype.push;
+
+    Array.prototype.push = function () {
+        console.log('监听到数组到变化了')
+        // 恢复 默认行为
+        originalPush.apply(this, [...arguments])
+    }
+
+    arr.push(3)
+    console.log(123)
+    // 我香监听浏览器控制台 有没有日志输出
+    
+
+    function MyArr() {
+
+    }
+    MyArr.prototype.push = function() {
+
+    }
+
+    let a = new MyArr()
+    a.push()
+
+    const originalPush = MyArr.prototype.push;
+    originalPush.apply(a)
+
+
+    let methods = ['pop', 'push', 'shift', 'unshift']
+    methods.forEach((name) => {
+        let original = Array.prototype[name]
+        Array.prototype[name] = function() {
+            console.log('监听到了数据变化')
+            return original.apply(this, arguments)
+        }
+    })
+
+</script>
