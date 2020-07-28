@@ -13,10 +13,10 @@ Foo.prototype.getValue = function() {
 }
 
 function Bar(value) {
-    Foo.call(this, value)
+    Foo.call(this, value) // 构造函数继承
 }
 
-Bar.prototype = new Foo()
+Bar.prototype = new Foo() // 组合继承
 
 
 var person = new Bar('Hello World')
