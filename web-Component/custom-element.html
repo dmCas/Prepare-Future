@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Component</title>
+    <style>
+        .success-btn {
+            border: none;
+            border: 1px solid green;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <button>btn</button>
+    <button is="success-btn">btn</button>
+    <button class="success-btn">btn1</button>
     <script>
         // HTMLElement 浏览器实现的一个api接口类
         // DOM: 文档对象模型
-        class SuccessBtn extends HTMLElement {
-            constructor() {}
-
-        }
-        cus
+        class SuccessBtn extends HTMLButtonElement {
+            constructor() {
+                super();
+                // 公共
+                this.classList.add('success-btn');
+                this.addEventListener('click', () => {
+                    alert('成功了')
+                });
+            };
+        };
+        customElements.define('success-btn', SuccessBtn, {extends: 'button'})
     </script>
 </body>
 </html>
