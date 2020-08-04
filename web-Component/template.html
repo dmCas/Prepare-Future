@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- template定义模版
+    专门定义公共的东西 -->
+    <template id="title">
+        <!-- 临时父容器 document-fragment -->
+        <h2>h2</h2>
+    </template>
+    <script>
+        const tenp = document.getElementById('title');
+        console.log(tenp.content)
+    </script>
+</body>
+</html>
