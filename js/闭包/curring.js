@@ -10,11 +10,11 @@ var currying = function (fn) {
     }
     return next
 }
-var add = currying(function
-    var sum;
+var add = currying(function() {
+    let sum = 0;
     for(var i=0; i<arguments.length; i++){
         sum += arguments[i]
     }
     console.log(sum) 
 })
-add(1)(2).toString()
+add(1)(2)(3, 4, 5).toString()
