@@ -28,7 +28,7 @@ new Promise((resolve, reject) => {
     console.log('promise');
     resolve('promise pending')
 })
-.then((res) => console.log(res))
 .then(() => console.log('promise2'))
+.then(() => console.log('promise3'))
 
 console.log('script end')
