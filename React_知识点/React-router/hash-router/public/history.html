@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--浏览器的 api -->
+  <a onclick="push('/a')">去a</a>
+  <a onclick="push('/b')">去b</a>
+
+  <script>
+    function push(path) {
+      // 浏览器自带的api  参数：1、date any类型 2、title string 3、url string
+      history.pushState({p:path}, null, path)
+    }
+
+    // 监听 虚拟路径变化 
+    window.addEventListener('popstate', e => {
+      // 历史记录 会对访问记录进行一个缓存
+      console.log(history.length)
+      console.log(e)
+    })
+  </script>
+</body>
+</html>
